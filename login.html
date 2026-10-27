@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7f2" />
+    <title>Sign in | Find My PG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="auth.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="auth.js" defer></script>
+  </head>
+  <body>
+    <main class="auth-shell">
+      <section class="auth-story" aria-label="Find My PG">
+        <a class="brand" href="/"><span class="brand-mark"><i data-lucide="map-pin"></i></span><span>findmy<span class="brand-accent">pg</span></span></a>
+        <div class="story-copy"><div class="eyebrow"><span class="live-dot"></span> A GOOD PLACE CHANGES EVERYTHING</div><h1>Come on in.<br /><span>Your place is here.</span></h1><p>Find the right room. Meet the right people. Make Bengaluru feel a little more like yours.</p></div>
+        <figure class="story-photo"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="A sunlit, welcoming shared home" /><figcaption><i data-lucide="sparkles"></i> A little more at home</figcaption></figure>
+        <div class="story-foot"><span>Thoughtful stays, right where you need them.</span><span>Bengaluru, India</span></div>
+      </section>
+
+      <section class="auth-main">
+        <a class="mobile-brand brand" href="/"><span class="brand-mark"><i data-lucide="map-pin"></i></span><span>findmy<span class="brand-accent">pg</span></span></a>
+        <div class="auth-card">
+          <div class="auth-heading"><div class="eyebrow muted-eyebrow" id="page-eyebrow">YOUR NEXT CHAPTER</div><h2 id="page-title">Welcome back</h2><p id="page-description">Sign in to pick up where you left off.</p></div>
+          <div class="mode-switch" role="tablist" aria-label="Account type"><button type="button" role="tab" data-role="STUDENT" class="active"><i data-lucide="search"></i> I'm looking</button><button type="button" role="tab" data-role="OWNER"><i data-lucide="house"></i> I own a PG</button></div>
+          <div class="auth-tabs" role="tablist" aria-label="Account action"><button type="button" role="tab" data-mode="login" class="active">Sign in</button><button type="button" role="tab" data-mode="register">Create account</button></div>
+          <form id="auth-form" novalidate>
+            <div class="form-grid">
+              <label class="form-field full register-field hidden" data-field="fullName">Full name<input name="fullName" autocomplete="name" maxlength="80" placeholder="Your name" /></label>
+              <label class="form-field full register-field hidden" data-field="email">Email address<input name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com" /></label>
+              <label class="form-field full login-field" data-field="loginEmail">Email address<input name="loginEmail" type="email" autocomplete="username" maxlength="254" required placeholder="you@example.com" /></label>
+              <label class="form-field full register-field hidden" data-field="phone">Mobile number<input name="phone" type="tel" autocomplete="tel" maxlength="24" placeholder="+91 98765 43210" /></label>
+              <label class="form-field full" data-field="password">Password<input name="password" type="password" autocomplete="current-password" required minlength="12" maxlength="72" placeholder="At least 12 characters" /><span class="field-hint register-hint hidden">Use 12 or more characters.</span></label>
+
+              <label class="form-field register-field student-field hidden" data-field="college">College / university<input name="college" maxlength="120" placeholder="Where you study" /></label>
+              <label class="form-field register-field student-field hidden" data-field="course">Course / year<input name="course" maxlength="120" placeholder="e.g. B.Com, 2nd year" /></label>
+              <label class="form-field register-field student-field hidden" data-field="workplace">Workplace<input name="workplace" maxlength="120" placeholder="Where you work" /></label>
+              <label class="form-field register-field student-field hidden" data-field="preferredArea">Preferred area<input name="preferredArea" maxlength="120" placeholder="Neighbourhood in Bengaluru" /></label>
+
+              <label class="form-field full register-field owner-field hidden" data-field="businessName">Business / PG name<input name="businessName" maxlength="120" placeholder="Your property or business name" /></label>
+              <label class="form-field full register-field owner-field hidden" data-field="businessAddress">Business address<input name="businessAddress" maxlength="300" placeholder="Street, area, city" /></label>
+            </div>
+            <p class="form-error hidden" id="form-error" role="alert"></p>
+            <button class="submit-button" id="submit-button" type="submit"><span id="submit-label">Sign in</span><i data-lucide="arrow-right"></i></button>
+          </form>
+          <p class="auth-legal">Your details stay private and are only used to manage your account and enquiries.</p>
+          <a class="back-link" href="/"><i data-lucide="arrow-left"></i> Back to exploring</a>
+        </div>
+        <footer class="auth-footer">Find My PG <span>·</span> A better place to land</footer>
+      </section>
+    </main>
+  </body>
+</html>

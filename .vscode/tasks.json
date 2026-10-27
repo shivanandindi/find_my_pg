@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Find My PG: Build",
+      "type": "shell",
+      "command": "${workspaceFolder}\\mvnw.cmd",
+      "args": ["-q", "-DskipTests", "package"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Find My PG: Run",
+      "type": "shell",
+      "command": "${workspaceFolder}\\mvnw.cmd",
+      "args": ["spring-boot:run"],
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}

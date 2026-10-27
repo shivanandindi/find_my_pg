@@ -1,0 +1,5 @@
+target/
+*.class
+*.log
+findmypg-db*
+cookies.txt

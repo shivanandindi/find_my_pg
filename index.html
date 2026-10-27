@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7f2" />
+    <meta name="description" content="Find a PG that feels right. Browse verified stays around Bengaluru." />
+    <title>Find My PG | A better place to land</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#explore" aria-label="Find My PG home">
+        <span class="brand-mark"><i data-lucide="map-pin"></i></span>
+        <span>findmy<span class="brand-accent">pg</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-view="explore"><i data-lucide="compass"></i> Explore</button>
+        <button class="nav-link" data-view="saved"><i data-lucide="heart"></i> Saved <span class="nav-count" id="saved-count">0</span></button>
+        <button class="nav-link" data-view="listings"><i data-lucide="building-2"></i> My listings</button>
+      </nav>
+      <div class="topbar-actions">
+        <button class="owner-cta" id="list-property"><i data-lucide="plus"></i><span>List your PG</span></button>
+        <button class="profile-button" id="profile-button" aria-label="Open profile" title="Your account">S</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="search-band" aria-label="Search stays">
+        <div class="search-intro">
+          <div class="eyebrow"><span class="live-dot"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+          <h1>A place that feels<br class="desktop-break" /> like <span>your own.</span></h1>
+          <p>Thoughtful PG stays, close to the places that matter.</p>
+        </div>
+        <form class="search-box" id="search-form">
+          <label class="search-field location-field">
+            <i data-lucide="map-pin"></i>
+            <span class="field-copy"><span class="field-label">WHERE TO?</span><input id="location-search" type="search" placeholder="Area, college or workplace" autocomplete="off" /></span>
+          </label>
+          <span class="search-divider"></span>
+          <label class="search-field">
+            <i data-lucide="users-round"></i>
+            <span class="field-copy"><span class="field-label">ROOMMATES</span><select id="search-sharing"><option value="any">Any sharing</option><option value="1">Single sharing</option><option value="2">Double sharing</option><option value="3">Triple sharing</option><option value="4">Four sharing</option></select></span>
+          </label>
+          <button class="search-submit" type="submit"><i data-lucide="search"></i><span>Find a room</span></button>
+        </form>
+        <div class="search-art" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="" />
+          <span class="art-note"><i data-lucide="sparkles"></i> Room to be yourself</span>
+        </div>
+      </section>
+
+      <section class="content-wrap" id="explore-view">
+        <div class="results-heading">
+          <div>
+            <div class="eyebrow muted-eyebrow">MADE FOR THE WAY YOU LIVE</div>
+            <h2 id="results-title">PGs in Bengaluru</h2>
+            <p id="results-subtitle">Handpicked stays in the city's most-loved neighbourhoods.</p>
+          </div>
+          <label class="sort-control"><span>Sort by</span><select id="sort-select"><option value="recommended">Recommended</option><option value="price-low">Rent: low to high</option><option value="price-high">Rent: high to low</option></select></label>
+        </div>
+
+        <div class="browse-layout">
+          <aside class="filters" id="filters-panel">
+            <div class="filter-header"><h3>Make it your kind of place</h3><button id="clear-filters" class="text-button">Clear all</button></div>
+            <div class="filter-group">
+              <div class="filter-title"><span>Monthly budget</span><strong id="budget-label">Up to ₹25,000</strong></div>
+              <input id="budget-filter" class="range-input" type="range" min="5000" max="50000" step="1000" value="25000" aria-label="Maximum monthly budget" />
+              <div class="range-ends"><span>₹5,000</span><span>₹50,000+</span></div>
+            </div>
+            <div class="filter-group">
+              <span class="filter-title">I'm looking for</span>
+              <div class="choice-row" id="gender-filter">
+                <button class="choice active" data-gender="any">Any</button><button class="choice" data-gender="women">Women</button><button class="choice" data-gender="men">Men</button>
+              </div>
+            </div>
+            <div class="filter-group">
+              <span class="filter-title">Must-haves</span>
+              <div class="amenity-options">
+                <label><input type="checkbox" value="Wi-Fi" /><span class="checkmark"></span> Wi-Fi</label>
+                <label><input type="checkbox" value="Food" /><span class="checkmark"></span> Meals included</label>
+                <label><input type="checkbox" value="Laundry" /><span class="checkmark"></span> Laundry</label>
+                <label><input type="checkbox" value="AC" /><span class="checkmark"></span> Air conditioning</label>
+                <label><input type="checkbox" value="Parking" /><span class="checkmark"></span> Parking</label>
+              </div>
+            </div>
+            <div class="filter-footer"><i data-lucide="shield-check"></i><span>Every stay is checked by our local team.</span></div>
+          </aside>
+
+          <div class="results-column">
+            <div class="result-toolbar"><span id="result-count">0 stays</span><button class="mobile-filter-button" id="mobile-filter"><i data-lucide="sliders-horizontal"></i> Filters</button><button id="map-toggle" class="map-button"><i data-lucide="map"></i><span>Show map</span></button></div>
+            <div class="listing-list" id="listing-list" aria-live="polite"></div>
+            <div class="empty-state hidden" id="empty-state"><span class="empty-icon"><i data-lucide="scan-search"></i></span><h3>No stays found just yet</h3><p>Try a different area or loosen a filter to see more options.</p><button id="empty-clear" class="button-secondary">Clear filters</button></div>
+            <div class="map-panel hidden" id="map-panel"><div class="map-grid"></div><div class="map-label map-label-one">Indiranagar <strong>₹12k+</strong></div><div class="map-label map-label-two">Koramangala <strong>₹10k+</strong></div><div class="map-label map-label-three">HSR Layout <strong>₹9k+</strong></div><span class="map-center"><i data-lucide="map-pin"></i> Bengaluru</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard hidden" id="saved-view">
+        <div class="dashboard-heading"><div><div class="eyebrow muted-eyebrow">YOUR SHORTLIST</div><h2>Places you have your eye on</h2><p>Keep your favourites close while you decide.</p></div><button class="button-secondary" data-view="explore"><i data-lucide="arrow-left"></i> Back to exploring</button></div>
+        <div class="listing-list" id="saved-list"></div>
+        <div class="empty-state hidden" id="saved-empty"><span class="empty-icon"><i data-lucide="heart"></i></span><h3>Your shortlist starts here</h3><p>Tap the heart on any stay to keep it close.</p><button class="button-secondary" data-view="explore">Explore stays</button></div>
+      </section>
+
+      <section class="dashboard hidden" id="listings-view">
+        <div class="dashboard-heading"><div><div class="eyebrow muted-eyebrow">OWNER STUDIO</div><h2>Your PGs, all in one place</h2><p>Manage availability and keep your listing up to date.</p></div><button class="button-primary" id="dashboard-add"><i data-lucide="plus"></i> Add a property</button></div>
+        <div class="owner-summary" id="owner-summary"></div>
+        <div class="owner-listings" id="owner-listings"></div>
+        <div class="empty-state hidden" id="owner-empty"><span class="empty-icon"><i data-lucide="house-plus"></i></span><h3>Your next great resident is looking</h3><p>Add your PG and help someone find a place to call home.</p><button class="button-primary" id="empty-add"><i data-lucide="plus"></i> List your first PG</button></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="brand footer-brand" href="#explore"><span class="brand-mark"><i data-lucide="map-pin"></i></span><span>findmy<span class="brand-accent">pg</span></span></a><span>A good place changes everything.</span><span>Made for Bengaluru <i data-lucide="heart" class="footer-heart"></i></span></footer>
+
+    <div class="compare-dock hidden" id="compare-dock"><span><strong id="compare-count">0</strong> selected to compare</span><button class="compare-open" id="compare-open">Compare stays <i data-lucide="arrow-right"></i></button><button class="compare-clear" id="compare-clear" aria-label="Clear comparison"><i data-lucide="x"></i></button></div>
+    <div class="toast" id="toast" role="status"></div>
+    <div class="modal-layer hidden" id="modal-layer" role="dialog" aria-modal="true"></div>
+  </body>
+</html>
