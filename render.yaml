@@ -8,19 +8,3 @@ services:
     envVars:
       - key: SESSION_COOKIE_SECURE
         value: "true"
-      - key: SPRING_DATASOURCE_URL
-        value: "jdbc:postgresql://${findmypg-db.HOST}:${findmypg-db.PORT}/${findmypg-db.DATABASE}"
-      - key: SPRING_DATASOURCE_USERNAME
-        fromDatabase:
-          name: findmypg-db
-          property: user
-      - key: SPRING_DATASOURCE_PASSWORD
-        fromDatabase:
-          name: findmypg-db
-          property: password
-
-databases:
-  - name: findmypg-db
-    databaseName: findmypg
-    user: findmypg
-    plan: basic-256mb
