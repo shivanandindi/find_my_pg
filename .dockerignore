@@ -1,0 +1,5 @@
+.git
+.mvn
+target
+cookies.txt
+findmypg-db*
